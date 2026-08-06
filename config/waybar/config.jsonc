@@ -1,0 +1,128 @@
+{
+    // ========== 全局设置 ==========
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 2,
+
+    // ========== 模块布局 ==========
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",          // 系统托盘放在右侧最左
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "network",
+        "pulseaudio",
+        "battery",        // 电池放在最右侧
+	"custom/power"
+    ],
+
+    // ========== 模块配置 ==========
+
+    // ----- Niri 工作区 (纯色方块，无文字) -----
+    "niri/workspaces": {
+        "all-outputs": true,
+        "sort-by-number": true,
+        "disable-scroll": true
+    },
+
+    // ----- 当前窗口标题 -----
+    "niri/window": {
+        "format": "{}",
+        "max-length": 50,
+        "icon": true
+    },
+
+    // ----- 时钟 -----
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%Y-%m-%d  %A}",
+        "tooltip-format": "<big>{:%Y年 %B %d日}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60
+    },
+
+    // ----- CPU -----
+    "cpu": {
+        "format": " {usage:2}%",
+        "interval": 2,
+        "tooltip": true
+    },
+
+    // ----- 内存 -----
+    "memory": {
+        "format": " {used:0.1f}G",
+        "interval": 5,
+	"tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nUsage: {percentage}%\nAvailable: {avail:0.1f}G"
+    },
+
+    // ----- 温度 -----
+    "temperature": {
+        "thermal-zone": 0,
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 5
+    },
+
+    // ----- 亮度 -----
+    "backlight": {
+        "device": "intel_backlight",
+        "format": " {percent}%",
+        "interval": 5
+    },
+
+    // ----- 网络 -----
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": " 离线",
+        "tooltip-format": "{ifname}\nIP: {ipaddr}\n信号: {signalStrength}%",
+	"on-click": "kitty -e nmtui", 
+        "interval": 5
+    },
+
+    // ----- 音量 -----
+    "pulseaudio": {
+        "format": " {volume}%",
+        "format-muted": " 静音",
+        "on-click": "pavucontrol",
+        "tooltip-format": "{desc} - {volume}%"
+    },
+
+    // ----- 电池 -----
+    "battery": {
+        "bat": "BAT0",
+        "format": "{icon} {capacity}%",
+        "format-full": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "interval": 30,
+        "tooltip-format": "{time} 剩余\n{capacity}%"
+    },
+    // ----- 电源菜单 -----
+    "custom/power": {
+        "format": "",
+        "tooltip": "电源菜单",
+        "on-click": "wleave",
+        "interval": 3600
+    },
+
+    // ----- 系统托盘 -----
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6,
+	"icon-theme": "Papirus-Dark"
+    }
+}

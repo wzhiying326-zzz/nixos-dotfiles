@@ -1,0 +1,60 @@
+# ╭───────────────────────────────────────────╮
+# │  swaylock · Catppuccin Frappé             │
+# │  三层独立配色：外圈ring / 内圈inside / 文字text
+# ╰───────────────────────────────────────────╯
+
+# ─── 行为 ──────────────────────────────────
+screenshots
+clock
+timestr=%H:%M:%S
+# datestr=%A,%Y-%m-%d
+
+# ─── 指示器几何 ─────────────────────────────
+indicator
+indicator-radius=200
+indicator-thickness=15
+
+# ─── 字体 ──────────────────────────────────
+font=Maple Mono NF CN
+
+# ─── 【1.外圈圆环配色 Frappé】──────────────────
+ring-color=ca9ee6
+ring-clear-color=ca9ee6
+ring-ver-color=85c1dc
+ring-wrong-color=e78284
+ring-caps-lock-color=ef9f76
+
+# ─── 【2.内圈底色 Frappé】─────────────────────
+inside-color=303446
+inside-clear-color=414559
+inside-ver-color=414559
+inside-wrong-color=414559
+inside-caps-lock-color=414559
+
+# ─── 【3.中间时钟文字 Frappé】─────────────────
+text-color=c6d0f5
+text-clear-color=a6d189
+text-ver-color=85c1dc
+text-wrong-color=e78284
+text-caps-lock-color=ef9f76
+
+# ─── 分割细线（圆环与内圈中间一圈细边）──────
+line-color=51576d
+line-clear-color=51576d
+line-ver-color=85c1dc
+line-wrong-color=e78284
+line-caps-lock-color=ef9f76
+
+# ─── 按键高亮段、退格高亮（Frappé Pink）──────────────────
+key-hl-color=f4b8e8
+bs-hl-color=e78284
+separator-color=51576d
+
+# ─── 屏幕效果 ───────────────────────────────
+effect-blur=10x5
+effect-vignette=0.4:0.4
+
+# ─── 体验细节 ───────────────────────────────
+grace=2
+fade-in=0.3
+hide-keyboard-layout

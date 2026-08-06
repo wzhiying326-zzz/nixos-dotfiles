@@ -1,0 +1,53 @@
+{
+    "margin": "0",
+    "buttons-per-row": "5",
+    "column-spacing": 20,
+    "row-spacing": 0,
+    "button-aspect-ratio": "1/1",
+    "close-on-lost-focus": true,
+    "show-keybinds": false,
+    "no-version-info": true,
+    "buttons": [
+        {
+            "label": "lock",
+            "action": "swaylock -f",
+            "text": "锁定",
+            "keybind": "l",
+            "icon": "/home/wzy/.config/wleave/icons/lock.svg"
+        },
+        {
+            "label": "logout",
+            "action": [
+                {
+                    "$DESKTOP_SESSION": "niri",
+                    "shell": "niri msg action quit --skip-confirmation"
+                },
+                "loginctl terminate-user $USER"
+            ],
+            "text": "注销",
+            "keybind": "e",
+            "icon": "/home/wzy/.config/wleave/icons/logout.svg"
+        },
+        {
+            "label": "suspend",
+            "action": "systemctl suspend",
+            "text": "睡眠",
+            "keybind": "s",
+            "icon": "/home/wzy/.config/wleave/icons/suspend.svg"
+        },
+        {
+            "label": "reboot",
+            "action": "systemctl reboot",
+            "text": "重启",
+            "keybind": "r",
+            "icon": "/home/wzy/.config/wleave/icons/reboot.svg"
+        },
+        {
+            "label": "shutdown",
+            "action": "systemctl poweroff",
+            "text": "关机",
+            "keybind": "h",
+            "icon": "/home/wzy/.config/wleave/icons/shutdown.svg"
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+/*
+ * wleave 0.7.1
+ * Catppuccin Frappé
+ * buttons only
+ */
+
+@define-color text     #c6d0f5;
+@define-color yellow   #e5c890;
+@define-color lavender #babbf1;
+@define-color teal     #81c8be;
+@define-color peach    #ef9f76;
+@define-color red      #e78284;
+
+* {
+    font-family: "Maple Mono NF CN", "JetBrainsMono Nerd Font", sans-serif;
+}
+
+/* 让 niri 接管背景 */
+window {
+    background-color: transparent;
+}
+
+/* 主容器不要背景 */
+box {
+    background-color: transparent;
+    padding: 20px;
+}
+
+/* 按钮 */
+button {
+    margin: 0 10px;
+    background-image: none;
+    border-radius: 36px;
+    background-color: rgba(65, 69, 89, 0.85);
+    /*border: 1px solid rgba(198, 208, 245, 0.12);*/
+    transition: 150ms ease;
+}
+
+/* 图标 */
+button image {
+    -gtk-icon-size: 42px;
+}
+
+/* 文字 */
+button label.action-name {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* hover */
+button:hover {
+    background-color: rgba(81, 87, 109, 0.95);
+}
+
+/* colors */
+#lock image,
+#lock label.action-name {
+    color: @yellow;
+}
+
+#logout image,
+#logout label.action-name {
+    color: @lavender;
+}
+
+#suspend image,
+#suspend label.action-name {
+    color: @teal;
+}
+
+#reboot image,
+#reboot label.action-name {
+    color: @peach;
+}
+
+#shutdown image,
+#shutdown label.action-name {
+    color: @red;
+}
