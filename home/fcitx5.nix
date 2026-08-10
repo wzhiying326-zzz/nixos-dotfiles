@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   # 放置 Rime 用户配置文件
   xdg.dataFile."fcitx5/rime/default.custom.yaml".source =

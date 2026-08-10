@@ -1,55 +1,52 @@
--- OPTIONS
-local set = vim.opt
+-- ============================================================================
+--  全局编辑选项
+-- ============================================================================
 
---line nums
-set.relativenumber = true
-set.number = true
+local opt = vim.opt
 
--- indentation and tabs
-set.tabstop = 4
-set.shiftwidth = 4
-set.autoindent = true
-set.expandtab = true
+-- ---------- NixOS runtimepath ----------
+--  nixpkgs 装的 nvim parsers / plugins 会在 ~/.nix-profile/share/nvim
+--  确保这个目录在 runtimepath 里，让 treesitter 找到 parser
+local nix_rtp = vim.fn.expand('~/.nix-profile/share/nvim')
+if vim.fn.isdirectory(nix_rtp) == 1 then
+    vim.opt.runtimepath:append(nix_rtp)
+end
 
--- search settings
-set.ignorecase = true
-set.smartcase = true
+-- ---------- 缩进 ----------
+opt.expandtab   = true    -- tab 转空格
+opt.shiftwidth  = 4       -- 缩进宽度
+opt.tabstop     = 4       -- tab 显示宽度
+opt.smartindent = true    -- 新行自动缩进
 
--- appearance
-set.termguicolors = true
-set.background = "dark"
-set.signcolumn = "yes"
+-- ---------- 搜索 ----------
+opt.ignorecase = true     -- 搜索忽略大小写
+opt.smartcase  = true     -- 含大写时精确匹配
+opt.incsearch  = true     -- 增量搜索
+opt.hlsearch   = true     -- 高亮搜索结果
+opt.showmatch  = true     -- 匹配括号闪烁
+opt.matchtime  = 2
 
--- cursor line
-set.cursorline = true
+-- ---------- 行号 / 光标 ----------
+opt.number         = true
+opt.relativenumber = true
+opt.cursorline     = true
+opt.signcolumn     = 'yes:1'   -- 给 gitsigns / LSP 留位置（始终 1 列）
 
--- 80th column
-set.colorcolumn = "80"
+-- ---------- 外观 ----------
+opt.colorcolumn   = '100'      -- 第 100 列高亮
+opt.scrolloff     = 8          -- 距顶/底 8 行开始滚动
+opt.sidescrolloff = 8
+opt.wrap          = false      -- 不自动换行
+opt.linebreak     = true       -- 按单词换行
+opt.breakindent   = true       -- 换行后保持缩进
+opt.showmode      = false      -- 状态栏会显示模式
+opt.confirm       = true       -- :q 等命令不会因 unsaved 失败
+opt.termguicolors = true
 
--- clipboard
-set.clipboard:append("unnamedplus")
+-- ---------- 剪贴板 / 鼠标 ----------
+opt.clipboard = 'unnamedplus'  -- 与系统剪贴板互通
 
--- backspace
-set.backspace = "indent,eol,start"
+-- ---------- 补全（0.12 内置）----------
+opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
--- split windows
-set.splitbelow = true
-set.splitright = true
 
--- dw/diw/ciw works on full-word
-set.iskeyword:append("-")
-
--- keep cursor at least 8 rows from top/bot
-set.scrolloff = 8
-
--- undo dir settings
-set.swapfile = false
-set.backup = false
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
-set.undofile = true
-
--- incremental search
-set.incsearch = true
-
--- faster cursor hold
-set.updatetime = 50

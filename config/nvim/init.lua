@@ -1,3 +1,12 @@
-require("config.options")
-require("config.keybinds")
-require("manage").setup()
+-- ============================================================================
+--  Neovim 0.12+ 配置入口
+-- ============================================================================
+--  启动顺序：options → keymaps → autocmds → plugins
+--  改完任意文件 :restart 即可生效
+-- ============================================================================
+
+require('config.options')
+require('config.keymaps')
+require('config.autocmds')
+require('plugins')
+

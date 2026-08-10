@@ -1,17 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
-  
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "wzy-nixos"; 
+  networking.hostName = "wzy-nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Shanghai";
@@ -45,8 +49,14 @@
             DefaultIM = "rime";
             "Default Layout" = "us";
           };
-          "Groups/0/Items/0" = { Name = "keyboard-us"; Layout = ""; };
-          "Groups/0/Items/1" = { Name = "rime"; Layout = "us"; };
+          "Groups/0/Items/0" = {
+            Name = "keyboard-us";
+            Layout = "";
+          };
+          "Groups/0/Items/1" = {
+            Name = "rime";
+            Layout = "us";
+          };
         };
         globalOptions = {
         };
@@ -55,14 +65,15 @@
             Theme = "Catppuccin-Frappe-Pink";
             VerticalCandidateList = true;
           };
-          clipboard.globalSection = { TriggerKey = ""; };
+          clipboard.globalSection = {
+            TriggerKey = "";
+          };
           notifications.globalSection = { };
           notifications.sections.HiddenNotifications."0" = "fcitx-rime-deploy";
         };
       };
     };
   };
-
 
   services.pipewire = {
     enable = true;
@@ -73,19 +84,19 @@
 
   users.users.wzy = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; 
+    extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree
     ];
   };
-  
+
   # niri
   programs.niri = {
     enable = true;
     useNautilus = true;
   };
   services.displayManager.ly.enable = true;
-  
+
   # virtual
   services.spice-vdagentd.enable = true;
   services.qemuGuest.enable = true;
@@ -99,12 +110,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     neovim
     wget
     git
     kitty
-    fastfetch 
+    fastfetch
     yazi
     nautilus
     nautilus-open-any-terminal
@@ -112,15 +123,18 @@
     papirus-icon-theme
     libnotify
   ];
+
   environment.variables.EDITOR = "nvim";
-  
+
   # fonts
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     maple-mono.NF-CN
   ];
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    system.stateVersion = "26.05"; 
-}
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  system.stateVersion = "26.05";
+}
