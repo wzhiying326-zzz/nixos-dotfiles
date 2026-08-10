@@ -6,8 +6,8 @@ local opt          = vim.opt
 
 -- ---------- 缩进 ----------
 opt.expandtab      = true -- tab 转空格
-opt.shiftwidth     = 4 -- 缩进宽度
-opt.tabstop        = 4 -- tab 显示宽度
+opt.shiftwidth     = 2 -- 缩进宽度
+opt.tabstop        = 2 -- tab 显示宽度
 opt.smartindent    = true -- 新行自动缩进
 
 -- ---------- 搜索 ----------

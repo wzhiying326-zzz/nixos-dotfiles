@@ -14,6 +14,7 @@ let
     mako = "mako";
     swaylock = "swaylock";
     swayidle = "swayidle";
+    starship = "starship";
   };
 in
 
@@ -75,6 +76,7 @@ in
     mpv
     wl-clipboard
     cliphist
+    starship
   ];
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {

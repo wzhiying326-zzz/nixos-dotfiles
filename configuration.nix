@@ -112,6 +112,7 @@
   environment.systemPackages = with pkgs; [
     vim
     neovim
+    tree-sitter
     wget
     git
     kitty
