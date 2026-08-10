@@ -97,10 +97,6 @@
   };
   services.displayManager.ly.enable = true;
 
-  # virtual
-  services.spice-vdagentd.enable = true;
-  services.qemuGuest.enable = true;
-
   # gnome
   services.gvfs.enable = true;
   security.polkit.enable = true;
